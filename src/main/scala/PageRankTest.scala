@@ -45,7 +45,7 @@ object PageRankTest {
       case (id, (username, rank)) => (rank, username)
     }
     
-    val maxi=ranksByValue.sortByKey(false).collect()
+    val maxi=ranksByVertex.sortByKey(false).collect()
     
    
     var threshold=maxi.apply(0)._1*0.5
