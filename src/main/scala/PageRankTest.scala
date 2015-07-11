@@ -27,9 +27,9 @@ object PageRankTest {
       (fields(1).toLong, fields(0))
     }
     var coauthorIdHdfsFilePath="hdfs://scai01.cs.ucla.edu:9000/cheryl/dblp/coauthor.txt"
-    var coauthorIdLocalFilePath="data/authorId.txt"
+    var coauthorIdLocalFilePath="data/coauthor.txt"
     
-    val edges = sc.textFile(authorIdHdfsFilePath).map { line =>
+    val edges = sc.textFile(coauthorIdHdfsFilePath).map { line =>
       val fields = line.split('\t')
       Edge(fields(0).toLong, fields(1).toLong, 0)
     }
