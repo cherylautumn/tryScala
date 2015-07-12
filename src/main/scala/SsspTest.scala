@@ -33,9 +33,11 @@ object SsspTest {
 //    val graph: Graph[Int, Double] =
 //      GraphGenerators.logNormalGraph(sc, numVertices = 100).mapEdges(e => e.attr.toDouble)
 //    val sourceId: VertexId = 42 // The ultimate source
+    val Knuth: VertexId = 67123
+//    val Dijkstra: VertexId = 376
     // Initialize the graph such that all vertices except the root have distance infinity.
-    val initialGraph = graph.mapVertices((id, _) => if (id == users) 0.0 else Double.PositiveInfinity)
-    val sssp = initialGraph.pregel(Double.PositiveInfinity)(
+    val KnuthGraph = graph.mapVertices((id, _) => if (id == Knuth) 0.0 else Double.PositiveInfinity)
+    val sssp = KnuthGraph.pregel(Double.PositiveInfinity)(
       (id, dist, newDist) => math.min(dist, newDist), // Vertex Program
       triplet => {  // Send Message
         if (triplet.srcAttr + triplet.attr < triplet.dstAttr) {
