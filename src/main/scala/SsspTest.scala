@@ -19,11 +19,11 @@ object SsspTest {
     val sc = new SparkContext(conf)
 
     //dblp test
-    val users = sc.textFile("data/authorId.txt").map { line =>
+    val users = sc.textFile("hdfs://scai01.cs.ucla.edu:9000/cheryl/dblp/authorId.txt").map { line =>
       val fields = line.split('\t')
       (fields(1).toLong, fields(0))
     }
-    val edges = sc.textFile("data/coauthor.txt").map { line =>
+    val edges = sc.textFile("hdfs://scai01.cs.ucla.edu:9000/cheryl/dblp/coauthor.txt").map { line =>
       val fields = line.split('\t')
       Edge(fields(0).toLong, fields(1).toLong, fields(2).toLong)
     }
