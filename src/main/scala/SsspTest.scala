@@ -34,9 +34,10 @@ object SsspTest {
 //      GraphGenerators.logNormalGraph(sc, numVertices = 100).mapEdges(e => e.attr.toDouble)
 //    val sourceId: VertexId = 42 // The ultimate source
     val Knuth: VertexId = 67123
+    val Lam: VertexId = 102025
 //    val Dijkstra: VertexId = 376
     // Initialize the graph such that all vertices except the root have distance infinity.
-    val KnuthGraph = graph.mapVertices((id, _) => if (id == Knuth) 0.0 else Double.PositiveInfinity)
+    val KnuthGraph = graph.mapVertices((id, _) => if (id == Lam) 0.0 else Double.PositiveInfinity)
     val sssp = KnuthGraph.pregel(Double.PositiveInfinity)(
       (id, dist, newDist) => math.min(dist, newDist), // Vertex Program
       triplet => {  // Send Message
@@ -47,7 +48,10 @@ object SsspTest {
         }
       },
       (a,b) => math.min(a,b) // Merge Message
-    )
-    println(sssp.vertices.collect.mkString("\n"))
+    )    
+    val result=sssp.vertices.collect().filter(_._1==Knuth);
+    
+    println(result.mkString("\n"))
+    
   }
 }
