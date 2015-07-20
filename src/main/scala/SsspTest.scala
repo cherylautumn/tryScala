@@ -52,9 +52,10 @@ object SsspTest {
       (a, b) => if (a._1 < b._1) a else b)  
 //    println(sssp.vertices.collect.mkString("\n"))
 
-    val result=sssp.vertices.collect().filter(_._1==67123);
-
-    println(result.mkString("\n"))
+    val Knuth=sssp.vertices.collect().filter(_._1==67123);
+    println(Knuth.mkString("\n"))
+    val Dijkstra=sssp.vertices.collect().filter(_._1==376);
+    println(Dijkstra.mkString("\n"))
   }
  /***
   def main(args: Array[String]) {
