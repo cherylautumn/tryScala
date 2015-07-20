@@ -51,10 +51,10 @@ object SsspTest {
       //Merge Message
       (a, b) => if (a._1 < b._1) a else b)  
 //    println(sssp.vertices.collect.mkString("\n"))
-
-    val Knuth=sssp.vertices.collect().filter(_._1==67123);
+    var result = sssp.vertices.collect();
+    val Knuth=result.filter(_._1==67123);
     println(Knuth.mkString("\n"))
-    val Dijkstra=sssp.vertices.collect().filter(_._1==376);
+    val Dijkstra=result.filter(_._1==376);
     println(Dijkstra.mkString("\n"))
   }
  /***
