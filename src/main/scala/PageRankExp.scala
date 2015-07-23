@@ -19,7 +19,9 @@ object PageRankExp {
     
     val conf = new SparkConf().setAppName("PageRankExp")
     val sc = new SparkContext(conf)
-    pw.write("Exp_"+args(0))
+    pw.write("PageRankExp_"+args(0))
+    pw.newLine()
+    
     //Calculate I/O time
     var d1 = DateTime.now() 
     var authorIdHdfsFilePath="hdfs://scai01.cs.ucla.edu:9000/cheryl/dblp/authorId.txt"
@@ -34,13 +36,14 @@ object PageRankExp {
       val fields = line.split('\t')
       Edge(fields(0).toLong, fields(1).toLong, 0)
     }    
+    
+        
+    val graph = Graph(users, edges, "").cache()
     var d2 = DateTime.now() 
     var duration = new Duration(d1,d2);
     pw.write("IO Time difference is "+ duration.getStandardDays+" day(s), "+duration.getStandardHours+" hour(s), "+duration.getStandardMinutes+" minute(s), "+duration.getStandardSeconds+" second(s) and "+duration.getMillis+" millisecond(s)\n");
     
-    //Calculate pagerank time    
-    val graph = Graph(users, edges, "").cache()
-
+    //Calculate pagerank time
     d1 = DateTime.now() 
     val ranks = graph.staticPageRank(20).vertices
     d2 = new DateTime()
