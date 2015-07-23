@@ -19,7 +19,7 @@ object PageRankExp {
     
     val conf = new SparkConf().setAppName("PageRankExp")
     val sc = new SparkContext(conf)
-    
+    pw.write("Exp_"+args(0))
     //Calculate I/O time
     var d1 = DateTime.now() 
     var authorIdHdfsFilePath="hdfs://scai01.cs.ucla.edu:9000/cheryl/dblp/authorId.txt"
@@ -46,6 +46,7 @@ object PageRankExp {
     d2 = new DateTime()
     duration = new Duration(d1,d2);
     pw.write("Pagerank Time difference is "+ duration.getStandardDays+" day(s), "+duration.getStandardHours+" hour(s), "+duration.getStandardMinutes+" minute(s), "+duration.getStandardSeconds+" second(s) and "+duration.getMillis+" millisecond(s)\n");
+    pw.newLine()
     pw.close
     
     //Verify ans with socialite
