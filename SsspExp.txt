@@ -1,0 +1,100 @@
+SsspExp_0_node_1
+IO Time difference is 0 day(s), 0 hour(s), 0 minute(s), 0 second(s) and 398 millisecond(s)
+Sssp Time difference is 0 day(s), 0 hour(s), 0 minute(s), 29 second(s) and 29209 millisecond(s)
+
+SsspExp_1_node_1
+IO Time difference is 0 day(s), 0 hour(s), 0 minute(s), 0 second(s) and 397 millisecond(s)
+Sssp Time difference is 0 day(s), 0 hour(s), 0 minute(s), 30 second(s) and 30675 millisecond(s)
+
+SsspExp_2_node_1
+IO Time difference is 0 day(s), 0 hour(s), 0 minute(s), 0 second(s) and 367 millisecond(s)
+Sssp Time difference is 0 day(s), 0 hour(s), 0 minute(s), 35 second(s) and 35529 millisecond(s)
+
+SsspExp_3_node_1
+IO Time difference is 0 day(s), 0 hour(s), 0 minute(s), 0 second(s) and 361 millisecond(s)
+Sssp Time difference is 0 day(s), 0 hour(s), 0 minute(s), 32 second(s) and 32745 millisecond(s)
+
+SsspExp_4_node_1
+IO Time difference is 0 day(s), 0 hour(s), 0 minute(s), 0 second(s) and 400 millisecond(s)
+Sssp Time difference is 0 day(s), 0 hour(s), 0 minute(s), 28 second(s) and 28503 millisecond(s)
+
+SsspExp_0_node_3
+IO Time difference is 0 day(s), 0 hour(s), 0 minute(s), 0 second(s) and 395 millisecond(s)
+Sssp Time difference is 0 day(s), 0 hour(s), 0 minute(s), 37 second(s) and 37505 millisecond(s)
+
+SsspExp_1_node_3
+IO Time difference is 0 day(s), 0 hour(s), 0 minute(s), 0 second(s) and 393 millisecond(s)
+Sssp Time difference is 0 day(s), 0 hour(s), 0 minute(s), 46 second(s) and 46621 millisecond(s)
+
+SsspExp_2_node_3
+IO Time difference is 0 day(s), 0 hour(s), 0 minute(s), 0 second(s) and 363 millisecond(s)
+Sssp Time difference is 0 day(s), 0 hour(s), 0 minute(s), 39 second(s) and 39193 millisecond(s)
+
+SsspExp_3_node_3
+IO Time difference is 0 day(s), 0 hour(s), 0 minute(s), 0 second(s) and 363 millisecond(s)
+Sssp Time difference is 0 day(s), 0 hour(s), 0 minute(s), 43 second(s) and 43125 millisecond(s)
+
+SsspExp_4_node_3
+IO Time difference is 0 day(s), 0 hour(s), 0 minute(s), 0 second(s) and 353 millisecond(s)
+Sssp Time difference is 0 day(s), 0 hour(s), 0 minute(s), 45 second(s) and 45488 millisecond(s)
+
+SsspExp_0_node_5
+IO Time difference is 0 day(s), 0 hour(s), 0 minute(s), 0 second(s) and 394 millisecond(s)
+Sssp Time difference is 0 day(s), 0 hour(s), 0 minute(s), 44 second(s) and 44161 millisecond(s)
+
+SsspExp_1_node_5
+IO Time difference is 0 day(s), 0 hour(s), 0 minute(s), 0 second(s) and 396 millisecond(s)
+Sssp Time difference is 0 day(s), 0 hour(s), 0 minute(s), 44 second(s) and 44217 millisecond(s)
+
+SsspExp_2_node_5
+IO Time difference is 0 day(s), 0 hour(s), 0 minute(s), 0 second(s) and 398 millisecond(s)
+Sssp Time difference is 0 day(s), 0 hour(s), 0 minute(s), 41 second(s) and 41366 millisecond(s)
+
+SsspExp_3_node_5
+IO Time difference is 0 day(s), 0 hour(s), 0 minute(s), 0 second(s) and 404 millisecond(s)
+Sssp Time difference is 0 day(s), 0 hour(s), 0 minute(s), 43 second(s) and 43307 millisecond(s)
+
+SsspExp_4_node_5
+IO Time difference is 0 day(s), 0 hour(s), 0 minute(s), 0 second(s) and 395 millisecond(s)
+Sssp Time difference is 0 day(s), 0 hour(s), 0 minute(s), 40 second(s) and 40794 millisecond(s)
+
+SsspExp_0_node_9
+IO Time difference is 0 day(s), 0 hour(s), 0 minute(s), 0 second(s) and 393 millisecond(s)
+Sssp Time difference is 0 day(s), 0 hour(s), 0 minute(s), 41 second(s) and 41603 millisecond(s)
+
+SsspExp_1_node_9
+IO Time difference is 0 day(s), 0 hour(s), 0 minute(s), 0 second(s) and 357 millisecond(s)
+Sssp Time difference is 0 day(s), 0 hour(s), 0 minute(s), 44 second(s) and 44932 millisecond(s)
+
+SsspExp_2_node_9
+IO Time difference is 0 day(s), 0 hour(s), 0 minute(s), 0 second(s) and 357 millisecond(s)
+Sssp Time difference is 0 day(s), 0 hour(s), 0 minute(s), 30 second(s) and 30108 millisecond(s)
+
+SsspExp_3_node_9
+IO Time difference is 0 day(s), 0 hour(s), 0 minute(s), 0 second(s) and 360 millisecond(s)
+Sssp Time difference is 0 day(s), 0 hour(s), 0 minute(s), 28 second(s) and 28766 millisecond(s)
+
+SsspExp_4_node_9
+IO Time difference is 0 day(s), 0 hour(s), 0 minute(s), 0 second(s) and 361 millisecond(s)
+Sssp Time difference is 0 day(s), 0 hour(s), 0 minute(s), 38 second(s) and 38066 millisecond(s)
+
+SsspExp_0_node_16
+IO Time difference is 0 day(s), 0 hour(s), 0 minute(s), 0 second(s) and 356 millisecond(s)
+Sssp Time difference is 0 day(s), 0 hour(s), 0 minute(s), 46 second(s) and 46491 millisecond(s)
+
+SsspExp_1_node_16
+IO Time difference is 0 day(s), 0 hour(s), 0 minute(s), 0 second(s) and 356 millisecond(s)
+Sssp Time difference is 0 day(s), 0 hour(s), 0 minute(s), 30 second(s) and 30994 millisecond(s)
+
+SsspExp_2_node_16
+IO Time difference is 0 day(s), 0 hour(s), 0 minute(s), 0 second(s) and 401 millisecond(s)
+Sssp Time difference is 0 day(s), 0 hour(s), 0 minute(s), 29 second(s) and 29290 millisecond(s)
+
+SsspExp_3_node_16
+IO Time difference is 0 day(s), 0 hour(s), 0 minute(s), 0 second(s) and 359 millisecond(s)
+Sssp Time difference is 0 day(s), 0 hour(s), 0 minute(s), 30 second(s) and 30534 millisecond(s)
+
+SsspExp_4_node_16
+IO Time difference is 0 day(s), 0 hour(s), 0 minute(s), 0 second(s) and 398 millisecond(s)
+Sssp Time difference is 0 day(s), 0 hour(s), 0 minute(s), 42 second(s) and 42042 millisecond(s)
+

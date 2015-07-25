@@ -1,0 +1,101 @@
+PageRankExp_0_node_1
+IO Time difference is 0 day(s), 0 hour(s), 0 minute(s), 0 second(s) and 403 millisecond(s)
+Pagerank Time difference is 0 day(s), 0 hour(s), 0 minute(s), 52 second(s) and 52418 millisecond(s)
+
+PageRankExp_1_node_1
+IO Time difference is 0 day(s), 0 hour(s), 0 minute(s), 0 second(s) and 367 millisecond(s)
+Pagerank Time difference is 0 day(s), 0 hour(s), 0 minute(s), 48 second(s) and 48217 millisecond(s)
+
+PageRankExp_2_node_1
+IO Time difference is 0 day(s), 0 hour(s), 0 minute(s), 0 second(s) and 366 millisecond(s)
+Pagerank Time difference is 0 day(s), 0 hour(s), 0 minute(s), 48 second(s) and 48551 millisecond(s)
+
+PageRankExp_3_node_1
+IO Time difference is 0 day(s), 0 hour(s), 0 minute(s), 0 second(s) and 358 millisecond(s)
+Pagerank Time difference is 0 day(s), 0 hour(s), 0 minute(s), 48 second(s) and 48273 millisecond(s)
+
+PageRankExp_4_node_1
+IO Time difference is 0 day(s), 0 hour(s), 0 minute(s), 0 second(s) and 366 millisecond(s)
+Pagerank Time difference is 0 day(s), 0 hour(s), 0 minute(s), 48 second(s) and 48483 millisecond(s)
+
+
+PageRankExp_0_node_3
+IO Time difference is 0 day(s), 0 hour(s), 0 minute(s), 0 second(s) and 402 millisecond(s)
+Pagerank Time difference is 0 day(s), 0 hour(s), 0 minute(s), 59 second(s) and 59146 millisecond(s)
+
+PageRankExp_1_node_3
+IO Time difference is 0 day(s), 0 hour(s), 0 minute(s), 0 second(s) and 429 millisecond(s)
+Pagerank Time difference is 0 day(s), 0 hour(s), 0 minute(s), 57 second(s) and 57757 millisecond(s)
+
+PageRankExp_2_node_3
+IO Time difference is 0 day(s), 0 hour(s), 0 minute(s), 0 second(s) and 381 millisecond(s)
+Pagerank Time difference is 0 day(s), 0 hour(s), 0 minute(s), 58 second(s) and 58237 millisecond(s)
+
+PageRankExp_3_node_3
+IO Time difference is 0 day(s), 0 hour(s), 0 minute(s), 0 second(s) and 400 millisecond(s)
+Pagerank Time difference is 0 day(s), 0 hour(s), 0 minute(s), 57 second(s) and 57577 millisecond(s)
+
+PageRankExp_4_node_3
+IO Time difference is 0 day(s), 0 hour(s), 0 minute(s), 0 second(s) and 356 millisecond(s)
+Pagerank Time difference is 0 day(s), 0 hour(s), 0 minute(s), 59 second(s) and 59317 millisecond(s)
+
+PageRankExp_0_node_5
+IO Time difference is 0 day(s), 0 hour(s), 0 minute(s), 0 second(s) and 362 millisecond(s)
+Pagerank Time difference is 0 day(s), 0 hour(s), 1 minute(s), 64 second(s) and 64958 millisecond(s)
+
+PageRankExp_1_node_5
+IO Time difference is 0 day(s), 0 hour(s), 0 minute(s), 0 second(s) and 404 millisecond(s)
+Pagerank Time difference is 0 day(s), 0 hour(s), 1 minute(s), 65 second(s) and 65236 millisecond(s)
+
+PageRankExp_2_node_5
+IO Time difference is 0 day(s), 0 hour(s), 0 minute(s), 0 second(s) and 359 millisecond(s)
+Pagerank Time difference is 0 day(s), 0 hour(s), 0 minute(s), 58 second(s) and 58041 millisecond(s)
+
+PageRankExp_3_node_5
+IO Time difference is 0 day(s), 0 hour(s), 0 minute(s), 0 second(s) and 399 millisecond(s)
+Pagerank Time difference is 0 day(s), 0 hour(s), 0 minute(s), 51 second(s) and 51638 millisecond(s)
+
+PageRankExp_4_node_5
+IO Time difference is 0 day(s), 0 hour(s), 0 minute(s), 0 second(s) and 405 millisecond(s)
+Pagerank Time difference is 0 day(s), 0 hour(s), 1 minute(s), 66 second(s) and 66486 millisecond(s)
+
+PageRankExp_0_node_9
+IO Time difference is 0 day(s), 0 hour(s), 0 minute(s), 0 second(s) and 365 millisecond(s)
+Pagerank Time difference is 0 day(s), 0 hour(s), 0 minute(s), 59 second(s) and 59007 millisecond(s)
+
+PageRankExp_1_node_9
+IO Time difference is 0 day(s), 0 hour(s), 0 minute(s), 0 second(s) and 360 millisecond(s)
+Pagerank Time difference is 0 day(s), 0 hour(s), 1 minute(s), 60 second(s) and 60721 millisecond(s)
+
+PageRankExp_2_node_9
+IO Time difference is 0 day(s), 0 hour(s), 0 minute(s), 0 second(s) and 355 millisecond(s)
+Pagerank Time difference is 0 day(s), 0 hour(s), 0 minute(s), 51 second(s) and 51264 millisecond(s)
+
+PageRankExp_3_node_9
+IO Time difference is 0 day(s), 0 hour(s), 0 minute(s), 0 second(s) and 406 millisecond(s)
+Pagerank Time difference is 0 day(s), 0 hour(s), 1 minute(s), 61 second(s) and 61845 millisecond(s)
+
+PageRankExp_4_node_9
+IO Time difference is 0 day(s), 0 hour(s), 0 minute(s), 0 second(s) and 406 millisecond(s)
+Pagerank Time difference is 0 day(s), 0 hour(s), 1 minute(s), 61 second(s) and 61647 millisecond(s)
+
+PageRankExp_0_node_16
+IO Time difference is 0 day(s), 0 hour(s), 0 minute(s), 0 second(s) and 360 millisecond(s)
+Pagerank Time difference is 0 day(s), 0 hour(s), 0 minute(s), 47 second(s) and 47908 millisecond(s)
+
+PageRankExp_1_node_16
+IO Time difference is 0 day(s), 0 hour(s), 0 minute(s), 0 second(s) and 353 millisecond(s)
+Pagerank Time difference is 0 day(s), 0 hour(s), 0 minute(s), 59 second(s) and 59641 millisecond(s)
+
+PageRankExp_2_node_16
+IO Time difference is 0 day(s), 0 hour(s), 0 minute(s), 0 second(s) and 364 millisecond(s)
+Pagerank Time difference is 0 day(s), 0 hour(s), 0 minute(s), 48 second(s) and 48308 millisecond(s)
+
+PageRankExp_3_node_16
+IO Time difference is 0 day(s), 0 hour(s), 0 minute(s), 0 second(s) and 359 millisecond(s)
+Pagerank Time difference is 0 day(s), 0 hour(s), 0 minute(s), 57 second(s) and 57124 millisecond(s)
+
+PageRankExp_4_node_16
+IO Time difference is 0 day(s), 0 hour(s), 0 minute(s), 0 second(s) and 399 millisecond(s)
+Pagerank Time difference is 0 day(s), 0 hour(s), 1 minute(s), 60 second(s) and 60520 millisecond(s)
+
