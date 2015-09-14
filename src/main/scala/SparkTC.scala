@@ -4,24 +4,28 @@ import org.apache.spark._
 import SparkContext._
 import scala.util.Random
 import scala.collection.mutable
+import org.apache.spark.graphx._
+// Import random graph generation library
+import org.apache.spark.graphx.util.GraphGenerators
+// A graph with edge attributes containing distances
 
 /**
  * Transitive closure on a graph.
  */
 object SparkTC {
-  val numEdges = 200
-  val numVertices = 100
-  val rand = new Random(42)
-
-  def generateGraph = {
-    val edges: mutable.Set[(Int, Int)] = mutable.Set.empty
-    while (edges.size < numEdges) {
-      val from = rand.nextInt(numVertices)
-      val to = rand.nextInt(numVertices)
-      if (from != to) edges.+=((from, to))
-    }
-    edges.toSeq
-  }
+//  val numEdges = 200
+//  val numVertices = 100
+//  val rand = new Random(42)
+//
+//  def generateGraph = {
+//    val edges: mutable.Set[(Int, Int)] = mutable.Set.empty
+//    while (edges.size < numEdges) {
+//      val from = rand.nextInt(numVertices)
+//      val to = rand.nextInt(numVertices)
+//      if (from != to) edges.+=((from, to))
+//    }
+//    edges.toSeq
+//  }
 
   def main(args: Array[String]) {
     if (args.length == 0) {
@@ -29,12 +33,28 @@ object SparkTC {
       System.exit(1)
     }
     val conf = new SparkConf().setAppName("Simple Application")
-    val spark = new SparkContext(conf)
+    val sc = new SparkContext(conf)
 
 //    val spark = new SparkContext(args(0), "SparkTC",
 //      System.getenv("SPARK_HOME"), SparkContext.jarOfClass(this.getClass))
     val slices = if (args.length > 1) args(1).toInt else 2
-    var tc = spark.parallelize(generateGraph, slices).cache()
+    
+        //dblp test
+    val users = sc.textFile("hdfs://scai01.cs.ucla.edu:9000/cheryl/dblp/authorId.txt").map { line =>
+//    val users = sc.textFile("data/authorId.txt").map { line =>
+      val fields = line.split('\t')
+      (fields(1).toLong, fields(0))
+    }
+    val edges = sc.textFile("hdfs://scai01.cs.ucla.edu:9000/cheryl/dblp/coauthor.txt").map { line =>
+//    val edges = sc.textFile("data/coauthor.txt").map { line =>  
+      val fields = line.split('\t')
+      Edge(fields(0).toLong, fields(1).toLong, fields(2).toLong)
+    }
+    
+    val generateGraph = Graph(users, edges, "").cache()
+    
+    
+    var tc = sc.parallelize(generateGraph, slices).cache()
 
     // Linear transitive closure: each round grows paths by one edge,
     // by joining the graph's edges with the already-discovered paths.
