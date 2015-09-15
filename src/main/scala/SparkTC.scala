@@ -8,75 +8,77 @@ import org.apache.spark.graphx._
 // Import random graph generation library
 import org.apache.spark.graphx.util.GraphGenerators
 // A graph with edge attributes containing distances
-
+import org.apache.spark.SparkContext
+import org.apache.spark.SparkContext._
+import org.apache.spark.SparkConf
+//import org.joda.time.format._
+//import org.joda.time._
+import java.io._
+import scala.collection.mutable.ArrayBuffer
 /**
  * Transitive closure on a graph.
  */
 object SparkTC {
-//  val numEdges = 200
-//  val numVertices = 100
-//  val rand = new Random(42)
-//
-//  def generateGraph = {
-//    val edges: mutable.Set[(Int, Int)] = mutable.Set.empty
-//    while (edges.size < numEdges) {
-//      val from = rand.nextInt(numVertices)
-//      val to = rand.nextInt(numVertices)
-//      if (from != to) edges.+=((from, to))
-//    }
-//    edges.toSeq
-//  }
-
+ 
   def main(args: Array[String]) {
-    if (args.length == 0) {
-      System.err.println("Usage: SparkTC <master> [<slices>]")
-      System.exit(1)
-    }
+
+    val file = new File("tcExp.txt")
+    val pw = new BufferedWriter(new FileWriter(file, true))  
     val conf = new SparkConf().setAppName("Simple Application")
     val sc = new SparkContext(conf)
+//    pw.write("SsspExp_"+args(0))
+    pw.write("SsspExp_")
+    pw.newLine()
 
-//    val spark = new SparkContext(args(0), "SparkTC",
-//      System.getenv("SPARK_HOME"), SparkContext.jarOfClass(this.getClass))
-    val slices = if (args.length > 1) args(1).toInt else 2
-    
-        //dblp test
-    val users = sc.textFile("hdfs://scai01.cs.ucla.edu:9000/cheryl/dblp/authorId.txt").map { line =>
-//    val users = sc.textFile("data/authorId.txt").map { line =>
+    //Calculate I/O time
+//    var d1 = DateTime.now() 
+
+    val users = sc.textFile("data/authorId.txt").map { line =>
       val fields = line.split('\t')
       (fields(1).toLong, fields(0))
     }
-    val arcs = sc.textFile("hdfs://scai01.cs.ucla.edu:9000/cheryl/dblp/coauthor.txt").map { line =>
-//    val edges = sc.textFile("data/coauthor.txt").map { line =>  
+    val edges = sc.textFile("data/coauthor.txt").map { line =>
       val fields = line.split('\t')
       Edge(fields(0).toLong, fields(1).toLong, fields(2).toLong)
     }
    
-    val generateGraph = Graph(users, arcs, "").cache()
+    val graph = Graph(users, edges, "").cache()
+//    var d2 = DateTime.now() 
+//    var duration = new Duration(d1,d2);
+//    pw.write("IO Time difference is "+ duration.getStandardDays+" day(s), "+duration.getStandardHours+" hour(s), "+duration.getStandardMinutes+" minute(s), "+duration.getStandardSeconds+" second(s) and "+duration.getMillis+" millisecond(s)\n");
     
+    //Calculate sssp time
+//    d1 = DateTime.now()
+    val sourceId: VertexId = 102025 // The ultimate source
+    val initialGraph : Graph[(Double, List[VertexId]), Long] = graph.mapVertices((id, _) => if (id == sourceId) (0.0, List[VertexId](sourceId)) else (Double.PositiveInfinity, List[VertexId]()))
+
+    val sssp = initialGraph.pregel((Double.PositiveInfinity, List[VertexId]()), Int.MaxValue, EdgeDirection.Out)(
+
+      // Vertex Program
+      (id, dist, newDist) => if (dist._1 < newDist._1) dist else newDist, 
+
+      // Send Message
+      triplet => {
+        if (triplet.srcAttr._1 < triplet.dstAttr._1 - triplet.attr ) {
+          Iterator((triplet.dstId, (triplet.srcAttr._1 + triplet.attr , triplet.srcAttr._2 :+ triplet.dstId)))
+        } else {
+          Iterator.empty
+        }
+      },
+      //Merge Message
+      (a, b) => if (a._1 < b._1) a else b
+    )
+//    d2 = new DateTime()
+//    duration = new Duration(d1,d2);
+//    pw.write("Sssp Time difference is "+ duration.getStandardDays+" day(s), "+duration.getStandardHours+" hour(s), "+duration.getStandardMinutes+" minute(s), "+duration.getStandardSeconds+" second(s) and "+duration.getMillis+" millisecond(s)\n");
+    pw.newLine()
+    pw.close
     
-    var tc = sc.parallelize(generateGraph, slices).cache()
-    
-
-    // Linear transitive closure: each round grows paths by one edge,
-    // by joining the graph's edges with the already-discovered paths.
-    // e.g. join the path (y, z) from the TC with the edge (x, y) from
-    // the graph to obtain the path (x, z).
-
-    // Because join() joins on keys, the edges are stored in reversed order.
-    val edges = tc.map(x => (x._2, x._1))
-
-    // This join is iterated until a fixed point is reached.
-    var oldCount = 0L
-    var nextCount = tc.count()
-    do {
-      oldCount = nextCount
-      // Perform the join, obtaining an RDD of (y, (z, x)) pairs,
-      // then project the result to obtain the new (x, z) paths.
-      tc = tc.union(tc.join(edges).map(x => (x._2._2, x._2._1))).distinct().cache()
-      nextCount = tc.count()
-    } while (nextCount != oldCount)
-
-    println("TC has " + tc.count() + " edges.")
-    System.exit(0)
+    //Verify ans with socialite
+    var result = sssp.vertices.collect();
+    val Knuth=result.filter(_._1==67123);
+    println(Knuth.mkString("\n"))
+    val Dijkstra=result.filter(_._1==376);
+    println(Dijkstra.mkString("\n"))
   }
 }
