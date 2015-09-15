@@ -45,16 +45,17 @@ object SparkTC {
       val fields = line.split('\t')
       (fields(1).toLong, fields(0))
     }
-    val edges = sc.textFile("hdfs://scai01.cs.ucla.edu:9000/cheryl/dblp/coauthor.txt").map { line =>
+    val arcs = sc.textFile("hdfs://scai01.cs.ucla.edu:9000/cheryl/dblp/coauthor.txt").map { line =>
 //    val edges = sc.textFile("data/coauthor.txt").map { line =>  
       val fields = line.split('\t')
       Edge(fields(0).toLong, fields(1).toLong, fields(2).toLong)
     }
-    
-    val generateGraph = Graph(users, edges, "").cache()
+   
+    val generateGraph = Graph(users, arcs, "").cache()
     
     
     var tc = sc.parallelize(generateGraph, slices).cache()
+    
 
     // Linear transitive closure: each round grows paths by one edge,
     // by joining the graph's edges with the already-discovered paths.
