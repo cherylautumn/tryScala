@@ -11,8 +11,8 @@ import org.apache.spark.graphx.util.GraphGenerators
 import org.apache.spark.SparkContext
 import org.apache.spark.SparkContext._
 import org.apache.spark.SparkConf
-//import org.joda.time.format._
-//import org.joda.time._
+import org.joda.time.format._
+import org.joda.time._
 import java.io._
 import scala.collection.mutable.ArrayBuffer
 /**
@@ -26,29 +26,28 @@ object SparkTC {
     val pw = new BufferedWriter(new FileWriter(file, true))  
     val conf = new SparkConf().setAppName("Simple Application")
     val sc = new SparkContext(conf)
-//    pw.write("SsspExp_"+args(0))
-    pw.write("SsspExp_")
+    pw.write("SsspExp_"+args(0))
     pw.newLine()
 
     //Calculate I/O time
-//    var d1 = DateTime.now() 
+    var d1 = DateTime.now() 
 
-    val users = sc.textFile("data/authorId.txt").map { line =>
+    val users = sc.textFile("hdfs://scai01.cs.ucla.edu:9000/cheryl/dblp/authorId.txt").map { line =>
       val fields = line.split('\t')
       (fields(1).toLong, fields(0))
     }
-    val edges = sc.textFile("data/coauthor.txt").map { line =>
+    val edges = sc.textFile("hdfs://scai01.cs.ucla.edu:9000/cheryl/dblp/coauthor.txt").map { line =>
       val fields = line.split('\t')
       Edge(fields(0).toLong, fields(1).toLong, fields(2).toLong)
     }
    
     val graph = Graph(users, edges, "").cache()
-//    var d2 = DateTime.now() 
-//    var duration = new Duration(d1,d2);
-//    pw.write("IO Time difference is "+ duration.getStandardDays+" day(s), "+duration.getStandardHours+" hour(s), "+duration.getStandardMinutes+" minute(s), "+duration.getStandardSeconds+" second(s) and "+duration.getMillis+" millisecond(s)\n");
+    var d2 = DateTime.now() 
+    var duration = new Duration(d1,d2);
+    pw.write("IO Time difference is "+ duration.getStandardDays+" day(s), "+duration.getStandardHours+" hour(s), "+duration.getStandardMinutes+" minute(s), "+duration.getStandardSeconds+" second(s) and "+duration.getMillis+" millisecond(s)\n");
     
     //Calculate sssp time
-//    d1 = DateTime.now()
+    d1 = DateTime.now()
     val sourceId: VertexId = 102025 // The ultimate source
     val initialGraph : Graph[(Double, List[VertexId]), Long] = graph.mapVertices((id, _) => if (id == sourceId) (0.0, List[VertexId](sourceId)) else (Double.PositiveInfinity, List[VertexId]()))
 
@@ -68,9 +67,9 @@ object SparkTC {
       //Merge Message
       (a, b) => if (a._1 < b._1) a else b
     )
-//    d2 = new DateTime()
-//    duration = new Duration(d1,d2);
-//    pw.write("Sssp Time difference is "+ duration.getStandardDays+" day(s), "+duration.getStandardHours+" hour(s), "+duration.getStandardMinutes+" minute(s), "+duration.getStandardSeconds+" second(s) and "+duration.getMillis+" millisecond(s)\n");
+    d2 = new DateTime()
+    duration = new Duration(d1,d2);
+    pw.write("Sssp Time difference is "+ duration.getStandardDays+" day(s), "+duration.getStandardHours+" hour(s), "+duration.getStandardMinutes+" minute(s), "+duration.getStandardSeconds+" second(s) and "+duration.getMillis+" millisecond(s)\n");
     pw.newLine()
     pw.close
     
